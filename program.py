@@ -26,6 +26,7 @@ with sr.Microphone(device_index = 0, sample_rate = sample_rate, chunk_size = chu
                 s = r.recognize_google(audio)
                 if(s.lower()=="jarvis"):
                         print("Say Something...")
+			audio=r.listen(source)
                         s = r.recognize_google(audio)
                         wb.open("https://www.google.com/search?q="+s.lower().replace("search ",""))
                         speech.say("Showing Result For "+s.lower().replace("search ",""))
